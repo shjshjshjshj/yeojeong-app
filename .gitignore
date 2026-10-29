@@ -1,0 +1,21 @@
+
+# --- Codex: GitHub upload exclusions ---
+**/node_modules/
+**/.gradle/
+**/.kotlin/
+**/.idea/
+**/build/
+**/.cxx/
+**/local.properties
+**/*.apk
+**/*.aab
+**/*.jks
+**/*.keystore
+**/*.zip
+**/*.tar.gz
+**/*.log
+**/*.iml
+**/*.img
+**/*.qcow2
+**/.obsidian/
+**/.netlify/

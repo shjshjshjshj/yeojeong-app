@@ -1,0 +1,40 @@
+{
+  "line1": {
+    "route": [
+      {"station_cd":"역곡","station_nm":"1803"},
+      {"station_cd":"온수","station_nm":"1821"},
+      {"station_cd":"오류동","station_nm":"1802"},
+      {"station_cd":"개봉","station_nm":"1801"},
+      {"station_cd":"구일","station_nm":"1813"},
+      {"station_cd":"구로","station_nm":"1701"},
+      {"station_cd":"신도림","station_nm":"1007"},
+      {"station_cd":"영등포","station_nm":"1006"},
+      {"station_cd":"신길","station_nm":"1032"},
+      {"station_cd":"대방","station_nm":"1005"},
+      {"station_cd":"노량진","station_nm":"1004"},
+      {"station_cd":"용산","station_nm":"1003"},
+      {"station_cd":"남영","station_nm":"1002"},
+      {"station_cd":"서울역","station_nm":"0150"},
+      {"station_cd":"시청","station_nm":"0151"},
+      {"station_cd":"종각","station_nm":"0152"},
+      {"station_cd":"종로3가","station_nm":"0153"},
+      {"station_cd":"종로5가","station_nm":"0154"},
+      {"station_cd":"동대문","station_nm":"0155"},
+      {"station_cd":"동묘앞","station_nm":"0159"},
+      {"station_cd":"신설동","station_nm":"0156"},
+      {"station_cd":"제기동","station_nm":"0157"},
+      {"station_cd":"청량리","station_nm":"0158"},
+      {"station_cd":"회기","station_nm":"1015"},
+      {"station_cd":"외대앞","station_nm":"1016"},
+      {"station_cd":"신이문","station_nm":"1017"},
+      {"station_cd":"석계","station_nm":"1018"},
+      {"station_cd":"광운대","station_nm":"1019"},
+      {"station_cd":"월계","station_nm":"1020"},
+      {"station_cd":"녹천","station_nm":"1021"},
+      {"station_cd":"창동","station_nm":"1022"},
+      {"station_cd":"방학","station_nm":"1901"},
+      {"station_cd":"도봉","station_nm":"1902"},
+      {"station_cd":"도봉산","station_nm":"1903"}
+    ]
+  }
+}

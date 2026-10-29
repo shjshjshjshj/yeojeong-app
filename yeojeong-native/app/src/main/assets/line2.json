@@ -1,0 +1,264 @@
+{
+  "line2": {
+    "route": [
+      {
+        "station_cd": "문래",
+        "station_nm": 235,
+        "latitude": 37.517993,
+        "longitude": 126.894766
+      },
+      {
+        "station_cd": "신도림",
+        "station_nm": 234,
+        "latitude": 37.508815,
+        "longitude": 126.891222
+      },
+      {
+        "station_cd": "대림",
+        "station_nm": 233,
+        "latitude": 37.492426,
+        "longitude": 126.895293
+      },
+      {
+        "station_cd": "구로디지털단지",
+        "station_nm": 232,
+        "latitude": 37.485005,
+        "longitude": 126.902626
+      },
+      {
+        "station_cd": "신대방",
+        "station_nm": 231,
+        "latitude": 37.487534,
+        "longitude": 126.913279
+      },
+      {
+        "station_cd": "신림",
+        "station_nm": 230,
+        "latitude": 37.484216,
+        "longitude": 126.929573
+      },
+      {
+        "station_cd": "봉천",
+        "station_nm": 229,
+        "latitude": 37.482416,
+        "longitude": 126.941896
+      },
+      {
+        "station_cd": "서울대입구",
+        "station_nm": 228,
+        "latitude": 37.481233,
+        "longitude": 126.952745
+      },
+      {
+        "station_cd": "낙성대",
+        "station_nm": 227,
+        "latitude": 37.47693,
+        "longitude": 126.963783
+      },
+      {
+        "station_cd": "사당",
+        "station_nm": 226,
+        "latitude": 37.476536,
+        "longitude": 126.981631
+      },
+      {
+        "station_cd": "방배",
+        "station_nm": 225,
+        "latitude": 37.481469,
+        "longitude": 126.997627
+      },
+      {
+        "station_cd": "서초",
+        "station_nm": 224,
+        "latitude": 37.49191,
+        "longitude": 127.007945
+      },
+      {
+        "station_cd": "교대",
+        "station_nm": 223,
+        "latitude": 37.493957,
+        "longitude": 127.014631
+      },
+      {
+        "station_cd": "강남",
+        "station_nm": 222,
+        "latitude": 37.497958,
+        "longitude": 127.027539
+      },
+      {
+        "station_cd": "역삼",
+        "station_nm": 221,
+        "latitude": 37.500658,
+        "longitude": 127.03643
+      },
+      {
+        "station_cd": "선릉",
+        "station_nm": 220,
+        "latitude": 37.504257,
+        "longitude": 127.048174
+      },
+      {
+        "station_cd": "삼성",
+        "station_nm": 219,
+        "latitude": 37.508827,
+        "longitude": 127.063203
+      },
+      {
+        "station_cd": "종합운동장",
+        "station_nm": 218,
+        "latitude": 37.511008,
+        "longitude": 127.073641
+      },
+      {
+        "station_cd": "잠실새내",
+        "station_nm": 217,
+        "latitude": 37.520731,
+        "longitude": 127.103738
+      },
+      {
+        "station_cd": "잠실",
+        "station_nm": 216,
+        "latitude": 37.513305,
+        "longitude": 127.100129
+      },
+      {
+        "station_cd": "잠실나루",
+        "station_nm": 215,
+        "latitude": 37.520688,
+        "longitude": 127.103836
+      },
+      {
+        "station_cd": "강변",
+        "station_nm": 214,
+        "latitude": 37.535161,
+        "longitude": 127.094684
+      },
+      {
+        "station_cd": "구의",
+        "station_nm": 213,
+        "latitude": 37.536857,
+        "longitude": 127.085024
+      },
+      {
+        "station_cd": "건대입구",
+        "station_nm": 212,
+        "latitude": 37.540408,
+        "longitude": 127.069231
+      },
+      {
+        "station_cd": "성수",
+        "station_nm": 211,
+        "latitude": 37.544628,
+        "longitude": 127.055983
+      },
+      {
+        "station_cd": "뚝섬",
+        "station_nm": 210,
+        "latitude": 37.54718,
+        "longitude": 127.047413
+      },
+      {
+        "station_cd": "한양대",
+        "station_nm": 209,
+        "latitude": 37.55658,
+        "longitude": 127.043504
+      },
+      {
+        "station_cd": "왕십리",
+        "station_nm": 208,
+        "latitude": 37.561159,
+        "longitude": 127.035505
+      },
+      {
+        "station_cd": "상왕십리",
+        "station_nm": 207,
+        "latitude": 37.564504,
+        "longitude": 127.028872
+      },
+      {
+        "station_cd": "신당",
+        "station_nm": 206,
+        "latitude": 37.565681,
+        "longitude": 127.019488
+      },
+      {
+        "station_cd": "동대문역사문화공원",
+        "station_nm": 205,
+        "latitude": 37.565597,
+        "longitude": 127.009113
+      },
+      {
+        "station_cd": "을지로4가",
+        "station_nm": 204,
+        "latitude": 37.566611,
+        "longitude": 126.998122
+      },
+      {
+        "station_cd": "을지로3가",
+        "station_nm": 203,
+        "latitude": 37.566292,
+        "longitude": 126.991773
+      },
+      {
+        "station_cd": "을지로입구",
+        "station_nm": 202,
+        "latitude": 37.565998,
+        "longitude": 126.982569
+      },
+      {
+        "station_cd": "시청",
+        "station_nm": 201,
+        "latitude": 37.56359,
+        "longitude": 126.975407
+      },
+      {
+        "station_cd": "충정로",
+        "station_nm": 243,
+        "latitude": 37.559742,
+        "longitude": 126.964455
+      },
+      {
+        "station_cd": "아현",
+        "station_nm": 242,
+        "latitude": 37.557407,
+        "longitude": 126.956079
+      },
+      {
+        "station_cd": "이대",
+        "station_nm": 241,
+        "latitude": 37.556734,
+        "longitude": 126.945897
+      },
+      {
+        "station_cd": "신촌",
+        "station_nm": 240,
+        "latitude": 37.555153,
+        "longitude": 126.93689
+      },
+      {
+        "station_cd": "홍대입구",
+        "station_nm": 239,
+        "latitude": 37.556748,
+        "longitude": 126.923643
+      },
+      {
+        "station_cd": "합정",
+        "station_nm": 238,
+        "latitude": 37.550025,
+        "longitude": 126.914557
+      },
+      {
+        "station_cd": "당산",
+        "station_nm": 237,
+        "latitude": 37.533877,
+        "longitude": 126.902011
+      },
+      {
+        "station_cd": "영등포구청",
+        "station_nm": 236,
+        "latitude": 37.525766,
+        "longitude": 126.896627
+      }
+    ]
+  }
+}

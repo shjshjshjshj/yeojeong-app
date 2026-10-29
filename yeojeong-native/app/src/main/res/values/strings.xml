@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">여정</string>
+    <string name="nav_home">홈</string>
+    <string name="nav_route">루트</string>
+    <string name="nav_report">리포트</string>
+    <string name="nav_my">마이</string>
+    <string name="action_search">검색</string>
+    <string name="action_back">뒤로가기</string>
+    <string name="action_save">저장</string>
+    <string name="action_saved">저장됨</string>
+    <string name="action_share">공유</string>
+    <string name="action_settings">설정</string>
+    <string name="action_close">닫기</string>
+    <string name="action_swap">출발역과 도착역 바꾸기</string>
+    <string name="action_more">더보기</string>
+    <string name="label_start">출발역</string>
+    <string name="label_end">도착역</string>
+    <string name="label_route">출퇴근 루트</string>
+    <string name="label_today">오늘의 힐링 스팟</string>
+    <string name="label_near_route">내 루트 근처</string>
+    <string name="label_saved">저장한 스팟</string>
+    <string name="label_visited">다녀온 곳</string>
+    <string name="label_weekly">주간 여정</string>
+    <string name="label_why">왜 여기일까요</string>
+    <string name="label_way">가는 길</string>
+    <string name="label_tags">이 스팟의 키워드</string>
+    <string name="label_empty_saved">아직 저장한 스팟이 없어요</string>
+    <string name="label_empty_saved_body">출퇴근길에 들러보고 싶은 곳을 저장해보세요.</string>
+    <string name="label_empty_report">이번 주 기록이 아직 없어요</string>
+    <string name="label_empty_report_body">스팟에 다녀온 뒤 ‘다녀왔어요’를 눌러 여정을 쌓아보세요.</string>
+    <string name="label_loading">불러오는 중</string>
+    <string name="label_weather">서울 날씨</string>
+    <string name="label_notifications">알림</string>
+    <string name="label_about">여정 소개</string>
+    <string name="label_reset">데이터 초기화</string>
+    <string name="label_nickname">닉네임</string>
+    <string name="label_current_route">현재 루트</string>
+    <string name="label_minutes">분</string>
+    <string name="label_stops">개 역</string>
+    <string name="label_walk">도보</string>
+    <string name="label_exit">번 출구</string>
+</resources>

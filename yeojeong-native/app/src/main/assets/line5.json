@@ -1,0 +1,276 @@
+{
+  "line5": {
+    "route": [
+      {
+        "station_cd": "마천",
+        "station_nm": 575,
+        "latitude": 37.494972,
+        "longitude": 127.152784
+      },
+      {
+        "station_cd": "거여",
+        "station_nm": 574,
+        "latitude": 37.493208,
+        "longitude": 127.143983
+      },
+      {
+        "station_cd": "개롱",
+        "station_nm": 573,
+        "latitude": 37.498097,
+        "longitude": 127.134817
+      },
+      {
+        "station_cd": "오금",
+        "station_nm": 572,
+        "latitude": 37.502288,
+        "longitude": 127.128344
+      },
+      {
+        "station_cd": "방이",
+        "station_nm": 571,
+        "latitude": 37.508752,
+        "longitude": 127.126054
+      },
+      {
+        "station_cd": "올림픽공원",
+        "station_nm": 570,
+        "latitude": 37.516217,
+        "longitude": 127.130957
+      },
+      {
+        "station_cd": "둔촌동",
+        "station_nm": 569,
+        "latitude": 37.527787,
+        "longitude": 127.136219
+      },
+      {
+        "station_cd": "강동",
+        "station_nm": 548,
+        "latitude": 37.53581,
+        "longitude": 127.13249
+      },
+      {
+        "station_cd": "천호",
+        "station_nm": 547,
+        "latitude": 37.538566,
+        "longitude": 127.123539
+      },
+      {
+        "station_cd": "광나루",
+        "station_nm": 546,
+        "latitude": 37.545301,
+        "longitude": 127.103478
+      },
+      {
+        "station_cd": "아차산",
+        "station_nm": 545,
+        "latitude": 37.552005,
+        "longitude": 127.089609
+      },
+      {
+        "station_cd": "군자",
+        "station_nm": 544,
+        "latitude": 37.557102,
+        "longitude": 127.079559
+      },
+      {
+        "station_cd": "장한평",
+        "station_nm": 543,
+        "latitude": 37.561438,
+        "longitude": 127.064601
+      },
+      {
+        "station_cd": "답십리",
+        "station_nm": 542,
+        "latitude": 37.566833,
+        "longitude": 127.05266
+      },
+      {
+        "station_cd": "마장",
+        "station_nm": 541,
+        "latitude": 37.566066,
+        "longitude": 127.042921
+      },
+      {
+        "station_cd": "왕십리",
+        "station_nm": 540,
+        "latitude": 37.561159,
+        "longitude": 127.035505
+      },
+      {
+        "station_cd": "행당",
+        "station_nm": 539,
+        "latitude": 37.557297,
+        "longitude": 127.029482
+      },
+      {
+        "station_cd": "신금호",
+        "station_nm": 538,
+        "latitude": 37.554504,
+        "longitude": 127.020403
+      },
+      {
+        "station_cd": "청구",
+        "station_nm": 537,
+        "latitude": 37.560237,
+        "longitude": 127.01379
+      },
+      {
+        "station_cd": "동대문역사문화공원",
+        "station_nm": 536,
+        "latitude": 37.565597,
+        "longitude": 127.009113
+      },
+      {
+        "station_cd": "을지로4가",
+        "station_nm": 535,
+        "latitude": 37.566611,
+        "longitude": 126.998122
+      },
+      {
+        "station_cd": "종로3가",
+        "station_nm": 534,
+        "latitude": 37.570429,
+        "longitude": 126.992095
+      },
+      {
+        "station_cd": "광화문",
+        "station_nm": 533,
+        "latitude": 37.570545,
+        "longitude": 126.976568
+      },
+      {
+        "station_cd": "서대문",
+        "station_nm": 532,
+        "latitude": 37.565812,
+        "longitude": 126.966639
+      },
+      {
+        "station_cd": "충정로",
+        "station_nm": 531,
+        "latitude": 37.559742,
+        "longitude": 126.964455
+      },
+      {
+        "station_cd": "애오개",
+        "station_nm": 530,
+        "latitude": 37.553592,
+        "longitude": 126.956733
+      },
+      {
+        "station_cd": "공덕",
+        "station_nm": 529,
+        "latitude": 37.544005,
+        "longitude": 126.951058
+      },
+      {
+        "station_cd": "마포",
+        "station_nm": 528,
+        "latitude": 37.539718,
+        "longitude": 126.946043
+      },
+      {
+        "station_cd": "여의나루",
+        "station_nm": 527,
+        "latitude": 37.527145,
+        "longitude": 126.932807
+      },
+      {
+        "station_cd": "여의도",
+        "station_nm": 526,
+        "latitude": 37.521578,
+        "longitude": 126.924318
+      },
+      {
+        "station_cd": "신길",
+        "station_nm": 525,
+        "latitude": 37.51763,
+        "longitude": 126.914886
+      },
+      {
+        "station_cd": "영등포시장",
+        "station_nm": 524,
+        "latitude": 37.52276,
+        "longitude": 126.905143
+      },
+      {
+        "station_cd": "영등포구청",
+        "station_nm": 523,
+        "latitude": 37.525766,
+        "longitude": 126.896627
+      },
+      {
+        "station_cd": "양평",
+        "station_nm": 522,
+        "latitude": 37.525614,
+        "longitude": 126.886177
+      },
+      {
+        "station_cd": "오목교",
+        "station_nm": 521,
+        "latitude": 37.524557,
+        "longitude": 126.875049
+      },
+      {
+        "station_cd": "목동",
+        "station_nm": 520,
+        "latitude": 37.526088,
+        "longitude": 126.864296
+      },
+      {
+        "station_cd": "신정",
+        "station_nm": 519,
+        "latitude": 37.525001,
+        "longitude": 126.856176
+      },
+      {
+        "station_cd": "까치산",
+        "station_nm": 518,
+        "latitude": 37.53181,
+        "longitude": 126.846706
+      },
+      {
+        "station_cd": "화곡",
+        "station_nm": 517,
+        "latitude": 37.541585,
+        "longitude": 126.840436
+      },
+      {
+        "station_cd": "우장산",
+        "station_nm": 516,
+        "latitude": 37.548864,
+        "longitude": 126.83633
+      },
+      {
+        "station_cd": "발산",
+        "station_nm": 515,
+        "latitude": 37.562182,
+        "longitude": 126.82693
+      },
+      {
+        "station_cd": "마곡",
+        "station_nm": 514,
+        "latitude": 37.562182,
+        "longitude": 126.82693
+      },
+      {
+        "station_cd": "송정",
+        "station_nm": 513,
+        "latitude": 37.561411,
+        "longitude": 126.812052
+      },
+      {
+        "station_cd": "김포공항",
+        "station_nm": 512,
+        "latitude": 37.56217,
+        "longitude": 126.801273
+      },
+      {
+        "station_cd": "개화산",
+        "station_nm": 511,
+        "latitude": 37.572458,
+        "longitude": 126.806838
+      }
+    ]
+  }
+}

@@ -1,0 +1,180 @@
+{
+  "line3": {
+    "route": [
+      {
+        "station_cd": "오금",
+        "station_nm": 572,
+        "latitude": 37.502288,
+        "longitude": 127.128344
+      },
+      {
+        "station_cd": "방이",
+        "station_nm": 571,
+        "latitude": 37.508752,
+        "longitude": 127.126054
+      },
+      {
+        "station_cd": "올림픽공원",
+        "station_nm": 570,
+        "latitude": 37.516217,
+        "longitude": 127.130957
+      },
+      {
+        "station_cd": "둔촌동",
+        "station_nm": 569,
+        "latitude": 37.527787,
+        "longitude": 127.136219
+      },
+      {
+        "station_cd": "강동",
+        "station_nm": 548,
+        "latitude": 37.53581,
+        "longitude": 127.13249
+      },
+      {
+        "station_cd": "천호",
+        "station_nm": 547,
+        "latitude": 37.538566,
+        "longitude": 127.123539
+      },
+      {
+        "station_cd": "광나루",
+        "station_nm": 546,
+        "latitude": 37.545301,
+        "longitude": 127.103478
+      },
+      {
+        "station_cd": "아차산",
+        "station_nm": 545,
+        "latitude": 37.552005,
+        "longitude": 127.089609
+      },
+      {
+        "station_cd": "군자",
+        "station_nm": 544,
+        "latitude": 37.557102,
+        "longitude": 127.079559
+      },
+      {
+        "station_cd": "장한평",
+        "station_nm": 543,
+        "latitude": 37.561438,
+        "longitude": 127.064601
+      },
+      {
+        "station_cd": "답십리",
+        "station_nm": 542,
+        "latitude": 37.566833,
+        "longitude": 127.05266
+      },
+      {
+        "station_cd": "마장",
+        "station_nm": 541,
+        "latitude": 37.566066,
+        "longitude": 127.042921
+      },
+      {
+        "station_cd": "왕십리",
+        "station_nm": 540,
+        "latitude": 37.561159,
+        "longitude": 127.035505
+      },
+      {
+        "station_cd": "행당",
+        "station_nm": 539,
+        "latitude": 37.557297,
+        "longitude": 127.029482
+      },
+      {
+        "station_cd": "신금호",
+        "station_nm": 538,
+        "latitude": 37.554504,
+        "longitude": 127.020403
+      },
+      {
+        "station_cd": "청구",
+        "station_nm": 537,
+        "latitude": 37.560237,
+        "longitude": 127.01379
+      },
+      {
+        "station_cd": "동대문역사문화공원",
+        "station_nm": 536,
+        "latitude": 37.565597,
+        "longitude": 127.009113
+      },
+      {
+        "station_cd": "을지로4가",
+        "station_nm": 535,
+        "latitude": 37.566611,
+        "longitude": 126.998122
+      },
+      {
+        "station_cd": "종로3가",
+        "station_nm": 329,
+        "latitude": 37.570429,
+        "longitude": 126.992095
+      },
+      {
+        "station_cd": "안국",
+        "station_nm": 328,
+        "latitude": 37.576562,
+        "longitude": 126.98547
+      },
+      {
+        "station_cd": "경복궁",
+        "station_nm": 327,
+        "latitude": 37.575844,
+        "longitude": 126.973576
+      },
+      {
+        "station_cd": "독립문",
+        "station_nm": 326,
+        "latitude": 37.574534,
+        "longitude": 126.957902
+      },
+      {
+        "station_cd": "무악재",
+        "station_nm": 325,
+        "latitude": 37.582658,
+        "longitude": 126.950131
+      },
+      {
+        "station_cd": "홍제",
+        "station_nm": 324,
+        "latitude": 37.588851,
+        "longitude": 126.944092
+      },
+      {
+        "station_cd": "녹번",
+        "station_nm": 323,
+        "latitude": 37.600882,
+        "longitude": 126.935758
+      },
+      {
+        "station_cd": "불광",
+        "station_nm": 322,
+        "latitude": 37.610554,
+        "longitude": 126.929843
+      },
+      {
+        "station_cd": "연신내",
+        "station_nm": 321,
+        "latitude": 37.618855,
+        "longitude": 126.920859
+      },
+      {
+        "station_cd": "구파발",
+        "station_nm": 320,
+        "latitude": 37.636612,
+        "longitude": 126.918827
+      },
+      {
+        "station_cd": "지축",
+        "station_nm": 319,
+        "latitude": 37.648281,
+        "longitude": 126.912551
+      }
+    ]
+  }
+}

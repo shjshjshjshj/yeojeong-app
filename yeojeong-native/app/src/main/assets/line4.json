@@ -1,0 +1,144 @@
+{
+  "line4": {
+    "route": [
+      {
+        "station_cd": "당고개",
+        "station_nm": 409,
+        "latitude": 37.66956,
+        "longitude": 127.078404
+      },
+      {
+        "station_cd": "상계",
+        "station_nm": 410,
+        "latitude": 37.660576,
+        "longitude": 127.073199
+      },
+      {
+        "station_cd": "노원",
+        "station_nm": 411,
+        "latitude": 37.656274,
+        "longitude": 127.063183
+      },
+      {
+        "station_cd": "창동",
+        "station_nm": 412,
+        "latitude": 37.652993,
+        "longitude": 127.046746
+      },
+      {
+        "station_cd": "쌍문",
+        "station_nm": 413,
+        "latitude": 37.648274,
+        "longitude": 127.034381
+      },
+      {
+        "station_cd": "미아",
+        "station_nm": 415,
+        "latitude": 37.626435,
+        "longitude": 127.026151
+      },
+      {
+        "station_cd": "미아사거리",
+        "station_nm": 416,
+        "latitude": 37.613276,
+        "longitude": 127.030083
+      },
+      {
+        "station_cd": "길음",
+        "station_nm": 417,
+        "latitude": 37.604087,
+        "longitude": 127.025353
+      },
+      {
+        "station_cd": "성신여대입구",
+        "station_nm": 418,
+        "latitude": 37.592782,
+        "longitude": 127.017338
+      },
+      {
+        "station_cd": "한성대입구",
+        "station_nm": 419,
+        "latitude": 37.58838,
+        "longitude": 127.006751
+      },
+      {
+        "station_cd": "혜화",
+        "station_nm": 420,
+        "latitude": 37.582116,
+        "longitude": 127.001759
+      },
+      {
+        "station_cd": "동대문",
+        "station_nm": 421,
+        "latitude": 37.57179,
+        "longitude": 127.011383
+      },
+      {
+        "station_cd": "동대문역사문화공원",
+        "station_nm": 422,
+        "latitude": 37.565597,
+        "longitude": 127.009113
+      },
+      {
+        "station_cd": "충무로",
+        "station_nm": 423,
+        "latitude": 37.561302,
+        "longitude": 126.995473
+      },
+      {
+        "station_cd": "명동",
+        "station_nm": 424,
+        "latitude": 37.561055,
+        "longitude": 126.988271
+      },
+      {
+        "station_cd": "회현",
+        "station_nm": 425,
+        "latitude": 37.559698,
+        "longitude": 126.979565
+      },
+      {
+        "station_cd": "숙대입구",
+        "station_nm": 427,
+        "latitude": 37.545124,
+        "longitude": 126.971952
+      },
+      {
+        "station_cd": "삼각지",
+        "station_nm": 428,
+        "latitude": 37.535057,
+        "longitude": 126.973354
+      },
+      {
+        "station_cd": "신용산",
+        "station_nm": 429,
+        "latitude": 37.52919,
+        "longitude": 126.96858
+      },
+      {
+        "station_cd": "이촌",
+        "station_nm": 430,
+        "latitude": 37.522525,
+        "longitude": 126.97335
+      },
+      {
+        "station_cd": "동작",
+        "station_nm": 431,
+        "latitude": 37.503567,
+        "longitude": 126.980171
+      },
+      {
+        "station_cd": "사당",
+        "station_nm": 433,
+        "latitude": 37.476536,
+        "longitude": 126.981631
+      },
+      {
+        "station_cd": "남태령",
+        "station_nm": 434,
+        "latitude": 37.464339,
+        "longitude": 126.989081
+      }
+    ]
+  }
+}

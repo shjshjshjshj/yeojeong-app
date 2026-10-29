@@ -1,0 +1,78 @@
+{
+  "line9": {
+    "route": [
+      {
+        "station_cd": "언주",
+        "station_nm": 926,
+        "latitude": 37.507324,
+        "longitude": 127.033905
+      },
+      {
+        "station_cd": "선정릉",
+        "station_nm": 927,
+        "latitude": 37.510278,
+        "longitude": 127.043902
+      },
+      {
+        "station_cd": "삼성중앙",
+        "station_nm": 928,
+        "latitude": 37.51306,
+        "longitude": 127.053334
+      },
+      {
+        "station_cd": "봉은사",
+        "station_nm": 929,
+        "latitude": 37.514258,
+        "longitude": 127.060257
+      },
+      {
+        "station_cd": "종합운동장",
+        "station_nm": 930,
+        "latitude": 37.511433,
+        "longitude": 127.076313
+      },
+      {
+        "station_cd": "삼전",
+        "station_nm": 931,
+        "latitude": 37.504356,
+        "longitude": 127.08804
+      },
+      {
+        "station_cd": "석촌고분",
+        "station_nm": 932,
+        "latitude": 37.502453,
+        "longitude": 127.096961
+      },
+      {
+        "station_cd": "석촌",
+        "station_nm": 933,
+        "latitude": 37.504929,
+        "longitude": 127.106682
+      },
+      {
+        "station_cd": "송파나루",
+        "station_nm": 934,
+        "latitude": 37.510303,
+        "longitude": 127.112231
+      },
+      {
+        "station_cd": "한성백제",
+        "station_nm": 935,
+        "latitude": 37.516311,
+        "longitude": 127.116168
+      },
+      {
+        "station_cd": "올림픽공원",
+        "station_nm": 936,
+        "latitude": 37.516132,
+        "longitude": 127.130282
+      },
+      {
+        "station_cd": "둔촌오륜",
+        "station_nm": 937,
+        "latitude": 37.519395,
+        "longitude": 127.138706
+      }
+    ]
+  }
+}

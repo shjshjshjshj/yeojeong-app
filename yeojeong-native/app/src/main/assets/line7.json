@@ -1,0 +1,114 @@
+{
+  "line7": {
+    "route": [
+      {
+        "station_cd": "김포공항",
+        "station_nm": 4005,
+        "latitude": 37.56217,
+        "longitude": 126.801273
+      },
+      {
+        "station_cd": "디지털미디어시티",
+        "station_nm": 4004,
+        "latitude": 37.577005,
+        "longitude": 126.898643
+      },
+      {
+        "station_cd": "홍대입구",
+        "station_nm": 4003,
+        "latitude": 37.556748,
+        "longitude": 126.923643
+      },
+      {
+        "station_cd": "공덕",
+        "station_nm": 4002,
+        "latitude": 37.544005,
+        "longitude": 126.951058
+      },
+      {
+        "station_cd": "회현",
+        "station_nm": 425,
+        "latitude": 37.559698,
+        "longitude": 126.979565
+      },
+      {
+        "station_cd": "명동",
+        "station_nm": 424,
+        "latitude": 37.561055,
+        "longitude": 126.988271
+      },
+      {
+        "station_cd": "충무로",
+        "station_nm": 423,
+        "latitude": 37.561302,
+        "longitude": 126.995473
+      },
+      {
+        "station_cd": "동대문역사문화공원",
+        "station_nm": 422,
+        "latitude": 37.565597,
+        "longitude": 127.009113
+      },
+      {
+        "station_cd": "동대문",
+        "station_nm": 421,
+        "latitude": 37.57179,
+        "longitude": 127.011383
+      },
+      {
+        "station_cd": "혜화",
+        "station_nm": 420,
+        "latitude": 37.582116,
+        "longitude": 127.001759
+      },
+      {
+        "station_cd": "한성대입구",
+        "station_nm": 419,
+        "latitude": 37.58838,
+        "longitude": 127.006751
+      },
+      {
+        "station_cd": "성신여대입구",
+        "station_nm": 418,
+        "latitude": 37.592782,
+        "longitude": 127.017338
+      },
+      {
+        "station_cd": "길음",
+        "station_nm": 417,
+        "latitude": 37.604087,
+        "longitude": 127.025353
+      },
+      {
+        "station_cd": "미아사거리",
+        "station_nm": 416,
+        "latitude": 37.613276,
+        "longitude": 127.030083
+      },
+      {
+        "station_cd": "미아",
+        "station_nm": 415,
+        "latitude": 37.626435,
+        "longitude": 127.026151
+      },
+      {
+        "station_cd": "쌍문",
+        "station_nm": 413,
+        "latitude": 37.648274,
+        "longitude": 127.034381
+      },
+      {
+        "station_cd": "창동",
+        "station_nm": 117,
+        "latitude": 37.652993,
+        "longitude": 127.046746
+      },
+      {
+        "station_cd": "도봉산",
+        "station_nm": 710,
+        "latitude": 37.689131,
+        "longitude": 127.046548
+      }
+    ]
+  }
+}

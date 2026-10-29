@@ -1,0 +1,96 @@
+{
+  "line1": {
+    "route": [
+      {
+        "station_cd": "도봉산",
+        "station_nm": 114,
+        "latitude": 37.689131,
+        "longitude": 127.046548
+      },
+      {
+        "station_cd": "창동",
+        "station_nm": 117,
+        "latitude": 37.652993,
+        "longitude": 127.046746
+      },
+      {
+        "station_cd": "석계",
+        "station_nm": 121,
+        "latitude": 37.614937,
+        "longitude": 127.065922
+      },
+      {
+        "station_cd": "청량리",
+        "station_nm": 125,
+        "latitude": 37.580148,
+        "longitude": 127.045063
+      },
+      {
+        "station_cd": "제기동",
+        "station_nm": 126,
+        "latitude": 37.578116,
+        "longitude": 127.034902
+      },
+      {
+        "station_cd": "신설동",
+        "station_nm": 127,
+        "latitude": 37.576117,
+        "longitude": 127.02471
+      },
+      {
+        "station_cd": "동묘앞",
+        "station_nm": 199,
+        "latitude": 37.573265,
+        "longitude": 127.016459
+      },
+      {
+        "station_cd": "동대문",
+        "station_nm": 128,
+        "latitude": 37.57179,
+        "longitude": 127.011383
+      },
+      {
+        "station_cd": "종로5가",
+        "station_nm": 129,
+        "latitude": 37.570971,
+        "longitude": 127.0019
+      },
+      {
+        "station_cd": "종로3가",
+        "station_nm": 130,
+        "latitude": 37.570429,
+        "longitude": 126.992095
+      },
+      {
+        "station_cd": "종각",
+        "station_nm": 131,
+        "latitude": 37.570203,
+        "longitude": 126.983116
+      },
+      {
+        "station_cd": "시청",
+        "station_nm": 132,
+        "latitude": 37.56359,
+        "longitude": 126.975407
+      },
+      {
+        "station_cd": "신길",
+        "station_nm": 138,
+        "latitude": 37.51763,
+        "longitude": 126.914886
+      },
+      {
+        "station_cd": "신도림",
+        "station_nm": 140,
+        "latitude": 37.508815,
+        "longitude": 126.891222
+      },
+      {
+        "station_cd": "온수",
+        "station_nm": 145,
+        "latitude": 37.492059,
+        "longitude": 126.823294
+      }
+    ]
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "line8": {
+    "route": [
+      {
+        "station_cd": "암사",
+        "station_nm": 810,
+        "latitude": 37.550127,
+        "longitude": 127.127521
+      },
+      {
+        "station_cd": "천호",
+        "station_nm": 811,
+        "latitude": 37.538566,
+        "longitude": 127.123539
+      },
+      {
+        "station_cd": "강동구청",
+        "station_nm": 812,
+        "latitude": 37.530348,
+        "longitude": 127.120461
+      },
+      {
+        "station_cd": "몽촌토성",
+        "station_nm": 813,
+        "latitude": 37.517692,
+        "longitude": 127.11274
+      },
+      {
+        "station_cd": "잠실",
+        "station_nm": 814,
+        "latitude": 37.513305,
+        "longitude": 127.100129
+      },
+      {
+        "station_cd": "석촌",
+        "station_nm": 815,
+        "latitude": 37.505396,
+        "longitude": 127.106995
+      },
+      {
+        "station_cd": "송파",
+        "station_nm": 816,
+        "latitude": 37.49978,
+        "longitude": 127.11212
+      },
+      {
+        "station_cd": "가락시장",
+        "station_nm": 817,
+        "latitude": 37.492368,
+        "longitude": 127.118101
+      },
+      {
+        "station_cd": "문정",
+        "station_nm": 818,
+        "latitude": 37.485931,
+        "longitude": 127.122473
+      },
+      {
+        "station_cd": "장지",
+        "station_nm": 819,
+        "latitude": 37.478609,
+        "longitude": 127.126229
+      },
+      {
+        "station_cd": "복정",
+        "station_nm": 1522,
+        "latitude": 37.471016,
+        "longitude": 127.126746
+      }
+    ]
+  }
+}

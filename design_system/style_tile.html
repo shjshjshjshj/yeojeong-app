@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>여정 Design System</title>
+<style>
+  :root {
+    --primary: #0D70FF;
+    --primary-alt: #0075FF;
+    --accent: #516ED3;
+    --ink: #000000;
+    --secondary: #727996;
+    --tertiary: #8E8E8E;
+    --disabled: #DCDEE5;
+    --soft: #EAECF5;
+    --page: #F7F7F7;
+    --white: #FFFFFF;
+    --yellow: #FFD12E;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--page);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans KR", sans-serif;
+  }
+  .page { max-width: 1180px; margin: 0 auto; padding: 48px 40px 72px; }
+  .eyebrow { color: var(--secondary); font-size: 13px; letter-spacing: .08em; text-transform: uppercase; }
+  h1 { margin: 8px 0 6px; font-size: 40px; line-height: 1.15; letter-spacing: -.02em; }
+  .lede { margin: 0 0 32px; color: var(--secondary); font-size: 15px; line-height: 1.6; max-width: 760px; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .card { background: var(--white); border-radius: 16px; padding: 24px; box-shadow: 0 2px 8px rgba(20, 30, 60, .06); }
+  .card h2 { margin: 0 0 4px; font-size: 18px; }
+  .card p { margin: 0 0 20px; color: var(--secondary); font-size: 12px; line-height: 1.5; }
+  .swatches { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .swatch { border-radius: 10px; overflow: hidden; background: #fff; border: 1px solid #eceef4; }
+  .chip { height: 54px; }
+  .swatch div:last-child { padding: 8px 10px 9px; font-size: 11px; color: var(--secondary); }
+  .swatch b { display: block; color: var(--ink); font-size: 11px; margin-bottom: 2px; }
+  .type-row { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding: 9px 0; border-bottom: 1px solid #f0f1f5; }
+  .type-row:last-child { border-bottom: 0; }
+  .type-row span { color: var(--secondary); font-size: 11px; white-space: nowrap; }
+  .display { font-size: 34px; font-weight: 700; line-height: 1.2; }
+  .h2 { font-size: 24px; font-weight: 700; line-height: 1.25; }
+  .h3 { font-size: 20px; font-weight: 700; line-height: 1.3; }
+  .title { font-size: 20px; color: var(--secondary); line-height: 1.3; }
+  .body { font-size: 16px; }
+  .small { font-size: 14px; color: var(--secondary); }
+  .cap { font-size: 12px; color: var(--tertiary); }
+  .spacing { display: flex; flex-direction: column; gap: 10px; }
+  .space { display: flex; align-items: center; gap: 12px; font-size: 11px; color: var(--secondary); }
+  .space i { display: block; height: 10px; background: var(--primary); border-radius: 3px; }
+  .space b { width: 46px; color: var(--ink); font-weight: 600; }
+  .row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+  .btn-primary { height: 56px; flex: 1 1 280px; border: 0; background: var(--primary); color: #fff; font: 700 16px/1 inherit; }
+  .btn-secondary { height: 48px; padding: 0 24px; border: 0; border-radius: 8px; background: #fff; color: var(--primary); font: 400 16px/1 inherit; box-shadow: 0 2px 6px rgba(20,30,60,.12); }
+  .btn-disabled { height: 56px; flex: 1 1 200px; border: 0; background: var(--disabled); color: var(--secondary); font: 700 16px/1 inherit; }
+  .input { height: 48px; width: 100%; border: 1px solid var(--secondary); border-radius: 8px; background: #fff; padding: 0 12px; color: var(--secondary); font: 14px inherit; }
+  .search { height: 44px; border-radius: 16px; background: var(--disabled); display: flex; align-items: center; padding: 0 12px; color: var(--ink); font-size: 16px; }
+  .search span { color: var(--secondary); margin-left: 8px; }
+  .select { display: flex; gap: 8px; margin-top: 12px; }
+  .select div { flex: 1; height: 88px; border: 2px solid var(--disabled); border-radius: 16px; display: flex; align-items: center; justify-content: center; font: 700 34px/1 inherit; color: var(--disabled); }
+  .select .on { border-color: var(--primary); color: var(--primary); }
+  .hero { position: relative; height: 216px; border-radius: 8px; overflow: hidden; background: linear-gradient(135deg, #7a8db8, #2c3550 55%, #111); box-shadow: 0 4px 12px rgba(20,30,60,.16); }
+  .hero:after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, #000 0%, rgba(0,0,0,.31) 42%, transparent 100%); }
+  .hero .copy { position: absolute; z-index: 1; left: 24px; bottom: 20px; color: #fff; }
+  .hero .badge { display: inline-block; padding: 4px 6px; border: 1px solid #fff; border-radius: 8px; color: #000; background: #fff; font-size: 13px; font-weight: 700; margin-bottom: 8px; }
+  .hero .copy b { display: block; font-size: 24px; line-height: 1.2; margin-bottom: 6px; }
+  .hero .copy small { font-size: 12px; font-weight: 700; }
+  .tabs { display: flex; border-bottom: 1px solid var(--soft); margin-bottom: 8px; }
+  .tabs div { flex: 1; text-align: center; padding: 16px 0 14px; font-weight: 700; font-size: 16px; color: var(--secondary); }
+  .tabs .on { color: var(--ink); box-shadow: inset 0 -2px 0 var(--primary); }
+  .nav { height: 56px; border-top: 1px solid #eef0f5; display: flex; background: #fff; }
+  .nav div { flex: 1; display: flex; align-items: center; justify-content: center; position: relative; }
+  .nav div:before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: var(--disabled); }
+  .nav .on:before { height: 3px; background: var(--primary); }
+  .icon { width: 24px; height: 24px; border-radius: 7px; border: 2px solid var(--secondary); }
+  .nav .on .icon { border-color: var(--primary); }
+  .line-badge { display: inline-flex; align-items: center; gap: 4px; color: #fff; font-size: 8px; font-weight: 700; }
+  .line-badge i { display: inline-block; width: 16px; height: 16px; border-radius: 3px; background: #00A84D; }
+  .footer { margin-top: 24px; color: var(--tertiary); font-size: 11px; }
+  @media (max-width: 860px) { .grid { grid-template-columns: 1fr; } .page { padding: 28px 20px 48px; } h1 { font-size: 30px; } }
+</style>
+</head>
+<body>
+<main class="page">
+  <div class="eyebrow">YeoJeong Design System</div>
+  <h1>여정 Design System</h1>
+  <p class="lede">서울의 숨은 장소를 발견하고, 출퇴근 동선으로 추천하며, 짧은 키워드 리뷰로 기록하는 앱. 흰 캔버스 위에 선명한 파랑, 낮은 회색 텍스트, 사진 카드와 단단한 8dp 모서리를 씁니다.</p>
+
+  <div class="grid">
+    <section class="card">
+      <h2>Color</h2>
+      <p>Brand blue is the only strong accent. Gray carries hierarchy; yellow appears in selected line states.</p>
+      <div class="swatches">
+        <div class="swatch"><div class="chip" style="background:#0D70FF"></div><div><b>Primary</b>#0D70FF</div></div>
+        <div class="swatch"><div class="chip" style="background:#516ED3"></div><div><b>Accent</b>#516ED3</div></div>
+        <div class="swatch"><div class="chip" style="background:#727996"></div><div><b>Text 2</b>#727996</div></div>
+        <div class="swatch"><div class="chip" style="background:#8E8E8E"></div><div><b>Text 3</b>#8E8E8E</div></div>
+        <div class="swatch"><div class="chip" style="background:#DCDEE5"></div><div><b>Border</b>#DCDEE5</div></div>
+        <div class="swatch"><div class="chip" style="background:#EAECF5"></div><div><b>Soft</b>#EAECF5</div></div>
+        <div class="swatch"><div class="chip" style="background:#F7F7F7;border-bottom:1px solid #eceef4"></div><div><b>Page</b>#F7F7F7</div></div>
+        <div class="swatch"><div class="chip" style="background:#FFD12E"></div><div><b>Highlight</b>#FFD12E</div></div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Type</h2>
+      <p>System sans-serif only. Regular for screen titles; bold for section titles and CTAs.</p>
+      <div class="type-row"><div class="display">여정</div><span>34 / 700</span></div>
+      <div class="type-row"><div class="h2">숨은 장소</div><span>24 / 700</span></div>
+      <div class="type-row"><div class="h3">이번 주 리포트</div><span>20 / 700</span></div>
+      <div class="type-row"><div class="title">마이페이지</div><span>20 / 400</span></div>
+      <div class="type-row"><div class="body">출퇴근 루트를 설정하세요</div><span>16 / 400</span></div>
+      <div class="type-row"><div class="small">서울시 용산구 새창로14길 23</div><span>14 / 400</span></div>
+      <div class="type-row"><div class="cap">2023.04.02 · 리뷰 226</div><span>12 / 400</span></div>
+    </section>
+
+    <section class="card">
+      <h2>Spacing</h2>
+      <p>4dp base. 24dp screen padding, 16dp section gap, 24dp card padding.</p>
+      <div class="spacing">
+        <div class="space"><b>4</b><i style="width:4px"></i></div>
+        <div class="space"><b>8</b><i style="width:8px"></i></div>
+        <div class="space"><b>12</b><i style="width:12px"></i></div>
+        <div class="space"><b>16</b><i style="width:16px"></i></div>
+        <div class="space"><b>24</b><i style="width:24px"></i></div>
+        <div class="space"><b>40</b><i style="width:40px"></i></div>
+        <div class="space"><b>56</b><i style="width:56px"></i></div>
+        <div class="space"><b>84</b><i style="width:84px"></i></div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Controls</h2>
+      <p>56dp bottom CTA. 8dp control radius. 16dp pill radius. Flat type, tight gray border.</p>
+      <div class="row" style="margin-bottom:12px">
+        <button class="btn-primary">여정 시작하기</button>
+        <button class="btn-disabled">다음</button>
+      </div>
+      <div class="row" style="margin-bottom:12px">
+        <button class="btn-secondary">나만의 스팟 제보하기</button>
+      </div>
+      <input class="input" placeholder="닉네임을 입력하세요">
+      <div style="height:8px"></div>
+      <div class="search"><b style="color:#727996">⌕</b><span>제목, 카테고리 검색</span></div>
+      <div class="select">
+        <div class="on">M</div>
+        <div>W</div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Image card</h2>
+      <p>8dp radius, 4dp shadow, dark gradient, white bold title. Hero is 216dp tall.</p>
+      <div class="hero">
+        <div class="copy">
+          <span class="badge">POP</span>
+          <b>소소한 아지트</b>
+          <small>서울시 용산구 새창로14길 23</small>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Navigation</h2>
+      <p>Header title is gray and regular. Bottom navigation is 56dp with 24dp icons and a 3dp active line.</p>
+      <div class="tabs"><div class="on">북마크</div><div>리뷰</div><div>리포트</div></div>
+      <div class="nav">
+        <div class="on"><span class="icon"></span></div>
+        <div><span class="icon"></span></div>
+        <div><span class="icon"></span></div>
+        <div><span class="icon"></span></div>
+      </div>
+      <div style="margin-top:16px" class="line-badge"><i></i>2호선</div>
+    </section>
+  </div>
+
+  <div class="footer">Static style tile · design tokens for YeoJeong · not a production screen</div>
+</main>
+</body>
+</html>

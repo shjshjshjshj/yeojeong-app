@@ -1,0 +1,11 @@
+.gradle/
+.kotlin/
+.idea/
+local.properties
+build/
+app/build/
+wrapper-tmp/
+*.iml
+*.log
+window.xml
+crop-status.png
