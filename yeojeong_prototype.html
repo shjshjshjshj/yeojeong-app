@@ -1,0 +1,589 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>여정 — 오늘의 한 정거장</title>
+<style>
+  :root{
+    --brand:#0D70FF;
+    --brand-ink:#0B5FD6;
+    --ink:#111418;
+    --ink-2:#5B6472;
+    --ink-3:#8A929E;
+    --line:#E6E9EF;
+    --surface:#FFFFFF;
+    --bg:#F4F6F9;
+    --soft:#EDF1F7;
+    --ok:#0E7C5A;
+    --warn:#B45309;
+    --danger:#B3261E;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    font-family:"Pretendard","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;
+    background:var(--bg); color:var(--ink); line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1180px;margin:0 auto;padding:40px 24px 80px}
+  header.top{max-width:760px}
+  .brand{display:inline-flex;align-items:center;gap:8px;font-weight:800;letter-spacing:-.02em}
+  .brand .dot{width:10px;height:10px;border-radius:50%;background:var(--brand)}
+  h1{font-size:34px;line-height:1.32;letter-spacing:-.03em;margin:18px 0 10px}
+  .lead{font-size:17px;color:var(--ink-2);margin:0}
+  .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
+  .chip{font-size:12px;font-weight:700;color:var(--brand-ink);background:#E9F0FF;border-radius:999px;padding:6px 10px}
+  .chip.gray{color:var(--ink-2);background:var(--soft)}
+
+  .stage{display:grid;grid-template-columns:390px minmax(0,1fr);gap:40px;margin-top:40px;align-items:start}
+  @media (max-width:900px){.stage{grid-template-columns:1fr;gap:24px}}
+
+  .phone{
+    width:390px;height:844px;background:#0E1013;border-radius:44px;padding:10px;
+    box-shadow:0 30px 60px rgba(16,24,40,.22), 0 2px 6px rgba(16,24,40,.14);
+    position:relative;
+  }
+  .phone .screen{
+    width:100%;height:100%;background:var(--surface);border-radius:36px;overflow:hidden;
+    display:flex;flex-direction:column;position:relative;
+  }
+  .statusbar{height:44px;display:flex;align-items:center;justify-content:space-between;padding:0 22px;font-size:12px;color:var(--ink-2);font-weight:600}
+  .statusbar .island{width:96px;height:24px;background:#0E1013;border-radius:14px}
+  .appbar{display:flex;align-items:center;justify-content:space-between;padding:4px 20px 12px}
+  .appbar .title{font-size:20px;font-weight:800;letter-spacing:-.02em}
+  .appbar .sub{font-size:12px;color:var(--ink-3);margin-top:2px}
+  .iconbtn{width:40px;height:40px;border-radius:50%;border:0;background:var(--soft);color:var(--ink-2);font-size:15px;cursor:pointer}
+  .appbody{flex:1;overflow-y:auto;padding:0 20px 96px}
+  .appbody::-webkit-scrollbar{width:0}
+  .tabbar{position:absolute;left:0;right:0;bottom:0;height:76px;background:rgba(255,255,255,.96);backdrop-filter:blur(6px);border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(3,1fr);padding-bottom:8px}
+  .tab{border:0;background:none;font:inherit;font-size:11px;font-weight:700;color:var(--ink-3);display:flex;flex-direction:column;align-items:center;gap:4px;padding-top:12px;cursor:pointer}
+  .tab .t{width:22px;height:22px;border-radius:7px;border:2px solid var(--ink-3);opacity:.5}
+  .tab.on{color:var(--brand-ink)}
+  .tab.on .t{border-color:var(--brand);opacity:1;background:#E9F0FF}
+
+  .eyebrow{font-size:12px;font-weight:700;color:var(--ink-3);letter-spacing:.02em}
+  .routeline{display:flex;align-items:center;gap:6px;font-size:15px;font-weight:700;margin-top:6px}
+  .routeline .sec{color:var(--ink-3);font-weight:600;font-size:13px}
+  .routeline .arrow{color:var(--ink-3)}
+  .h2{font-size:22px;line-height:1.35;letter-spacing:-.03em;margin:18px 0 6px}
+  .h2 em{font-style:normal;color:var(--brand-ink)}
+  .muted{font-size:13px;color:var(--ink-2)}
+
+  .budget{display:flex;gap:8px;margin:14px 0 4px}
+  .bchip{flex:1;border:1.5px solid var(--line);background:#fff;border-radius:14px;padding:10px 0;font:inherit;font-size:14px;font-weight:700;color:var(--ink-2);cursor:pointer}
+  .bchip.on{border-color:var(--brand);background:#E9F0FF;color:var(--brand-ink)}
+  .calc{font-size:12px;color:var(--ink-3);margin-top:8px}
+
+  .segment{display:flex;gap:6px;background:var(--soft);border-radius:14px;padding:4px;margin-top:12px}
+  .segment button{flex:1;border:0;background:none;font:inherit;font-size:12.5px;font-weight:700;color:var(--ink-2);padding:9px 6px;border-radius:11px;cursor:pointer}
+  .segment button.on{background:#fff;color:var(--ink);box-shadow:0 2px 6px rgba(16,24,40,.08)}
+
+  .card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px;margin-top:12px}
+  .card.primary{border-color:#C9D9F8;box-shadow:0 8px 20px rgba(13,112,255,.10)}
+  .row{display:flex;align-items:center;justify-content:space-between;gap:10px}
+  .place{font-size:17px;font-weight:800;letter-spacing:-.02em}
+  .kind{font-size:12px;color:var(--ink-3);font-weight:700}
+  .badge{font-size:11px;font-weight:800;padding:4px 8px;border-radius:999px;white-space:nowrap}
+  .badge.ok{background:#E7F5EF;color:var(--ok)}
+  .badge.warn{background:#FFF3E3;color:var(--warn)}
+  .badge.cut{background:#F4F5F7;color:var(--ink-3)}
+  .nums{display:flex;gap:14px;margin-top:10px}
+  .num{font-size:12px;color:var(--ink-2)}
+  .num b{display:block;font-size:16px;color:var(--ink);letter-spacing:-.01em}
+  .cta{width:100%;border:0;border-radius:16px;background:var(--brand);color:#fff;font:inherit;font-size:16px;font-weight:800;padding:16px;margin-top:14px;cursor:pointer}
+  .cta:disabled{background:#DDE1E8;color:#8A929E;cursor:not-allowed}
+  .ghost{width:100%;border:0;background:none;font:inherit;font-size:13px;font-weight:700;color:var(--ink-2);padding:12px;cursor:pointer}
+  .linkbtn{border:0;background:none;font:inherit;font-size:13px;font-weight:800;color:var(--brand-ink);cursor:pointer;padding:4px}
+
+  .empty{background:#FFF8EF;border:1px solid #F2D9B7;border-radius:16px;padding:14px;margin-top:12px;font-size:13px;color:#7A4B12}
+  .empty b{display:block;font-size:14px;margin-bottom:2px}
+
+  .planbox{background:var(--soft);border-radius:16px;padding:14px;margin-top:14px}
+  .planrow{display:flex;justify-content:space-between;font-size:13px;padding:6px 0}
+  .planrow b{font-weight:800}
+  .planrow.total{border-top:1px solid #DDE3EC;margin-top:6px;padding-top:10px;font-size:15px}
+
+  .steps{display:flex;gap:6px;margin:6px 0 18px}
+  .steps i{flex:1;height:4px;border-radius:99px;background:var(--line)}
+  .steps i.on{background:var(--brand)}
+  .bigtime{font-size:44px;font-weight:800;letter-spacing:-.04em;line-height:1}
+  .bigtime span{font-size:16px;font-weight:700;color:var(--ink-2);margin-left:6px}
+  .state{font-size:13px;font-weight:800;color:var(--brand-ink)}
+
+  .listrow{display:flex;gap:12px;align-items:flex-start;padding:14px 0;border-bottom:1px solid var(--line)}
+  .listrow:last-child{border-bottom:0}
+  .thumb{width:44px;height:44px;border-radius:12px;background:var(--soft);display:grid;place-items:center;font-size:16px}
+  .listrow .t1{font-size:14px;font-weight:800}
+  .listrow .t2{font-size:12px;color:var(--ink-3);margin-top:2px}
+  .stat3{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}
+  .stat{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px}
+  .stat b{display:block;font-size:19px;letter-spacing:-.02em}
+  .stat span{font-size:11px;color:var(--ink-3);font-weight:700}
+
+  .notes{background:#fff;border:1px solid var(--line);border-radius:20px;padding:24px;position:sticky;top:24px}
+  .notes h3{margin:0 0 4px;font-size:18px;letter-spacing:-.02em}
+  .notes .why{font-size:13px;color:var(--ink-2);margin:0 0 16px}
+  .notes dl{display:grid;grid-template-columns:88px 1fr;gap:10px 14px;margin:0;font-size:13.5px}
+  .notes dt{color:var(--ink-3);font-weight:800;font-size:12px}
+  .notes dd{margin:0;color:var(--ink)}
+  .note-tag{display:inline-block;font-size:11px;font-weight:800;color:#fff;background:var(--ink);border-radius:6px;padding:2px 6px;margin-right:6px;vertical-align:1px}
+  .fineprint{margin-top:16px;padding-top:14px;border-top:1px solid var(--line);font-size:12px;color:var(--ink-3)}
+
+  .section{margin-top:64px}
+  .section h2{font-size:24px;letter-spacing:-.03em;margin:0 0 6px}
+  .section p.sub{margin:0 0 20px;color:var(--ink-2);font-size:14px}
+
+  .ia{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  @media (max-width:900px){.ia{grid-template-columns:1fr}}
+  .iacol{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px}
+  .iacol h4{margin:0 0 4px;font-size:15px}
+  .iacol .role{font-size:12px;color:var(--ink-3);margin-bottom:12px;font-weight:700}
+  .ia ul{list-style:none;margin:0;padding:0}
+  .ia li{font-size:13px;padding:7px 0 7px 16px;border-left:2px solid var(--line);margin-left:6px;position:relative}
+  .ia li:before{content:"";position:absolute;left:-5px;top:14px;width:8px;height:8px;border-radius:50%;background:#fff;border:2px solid var(--brand)}
+  .ia li b{font-weight:800}
+
+  .flow{display:flex;align-items:stretch;gap:8px;flex-wrap:wrap}
+  .step{flex:1;min-width:150px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px}
+  .step .n{font-size:11px;font-weight:800;color:var(--brand-ink)}
+  .step .s{font-size:14px;font-weight:800;margin-top:4px;letter-spacing:-.01em}
+  .step .d{font-size:12px;color:var(--ink-2);margin-top:4px}
+  .arrow{align-self:center;color:var(--ink-3);font-size:18px}
+  @media (max-width:900px){.arrow{display:none}}
+
+  table.dec{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;font-size:13.5px}
+  table.dec th,table.dec td{padding:12px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+  table.dec th{font-size:12px;color:var(--ink-3);background:#FAFBFC;font-weight:800}
+  table.dec tr:last-child td{border-bottom:0}
+  table.dec td b{font-weight:800}
+  .pill{display:inline-block;font-size:11px;font-weight:800;border-radius:999px;padding:3px 8px;background:#E9F0FF;color:var(--brand-ink)}
+  .pill.g{background:#E7F5EF;color:var(--ok)}
+  .toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);background:#111418;color:#fff;font-size:13px;font-weight:700;padding:12px 18px;border-radius:12px;opacity:0;pointer-events:none;transition:.25s}
+  .toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="brand"><span class="dot"></span>여정 · 오늘의 한 정거장</div>
+    <h1>퇴근길 15분,<br>한 정거장 옆에서.</h1>
+    <p class="lead">여유 시간을 넣으면 <b>내릴 역</b>, <b>머물 곳</b>, <b>돌아올 시각</b>을 정해주는 앱. 좋은 장소를 많이 보여주는 대신, 오늘 내려도 되는지를 답합니다.</p>
+    <div class="chips">
+      <span class="chip">핵심 화면 1개 = 오늘</span>
+      <span class="chip">핵심 계산 1개 = 예산 − 왕복 − 여유</span>
+      <span class="chip gray">가짜 로그인·챌린지·리뷰 강요 없음</span>
+    </div>
+  </header>
+
+  <section class="stage">
+    <div class="phone">
+      <div class="screen">
+        <div class="statusbar"><span>18:48</span><span class="island"></span><span>목</span></div>
+        <div class="appbar">
+          <div>
+            <div class="title" id="appTitle">오늘</div>
+            <div class="sub" id="appSub">퇴근길 · 시청 방면</div>
+          </div>
+          <button class="iconbtn" title="설정" onclick="toast('설정은 상단 아이콘 하나로 모읍니다')">⚙</button>
+        </div>
+        <div class="appbody" id="screen"></div>
+        <nav class="tabbar">
+          <button class="tab on" data-tab="today"><span class="t"></span>오늘</button>
+          <button class="tab" data-tab="route"><span class="t"></span>내 경로</button>
+          <button class="tab" data-tab="log"><span class="t"></span>기록</button>
+        </nav>
+      </div>
+    </div>
+    <aside class="notes" id="notes"></aside>
+  </section>
+
+  <section class="section">
+    <h2>구조는 세 칸으로 끝납니다</h2>
+    <p class="sub">탭이 늘어나는 이유는 대개 "넣을 곳"이 생겨서입니다. 이번 구조는 오늘·경로·기록 세 칸 밖으로 화면을 만들지 않습니다.</p>
+    <div class="ia">
+      <div class="iacol"><h4>오늘</h4><div class="role">지금 결정하는 곳</div>
+        <ul>
+          <li><b>예산</b> 30·45·60·90분</li>
+          <li><b>역</b> 직전 역 기본, 변경 가능</li>
+          <li><b>후보</b> 1개 크게 + 대안 2개</li>
+          <li><b>계획 상세</b> 왕복·체류·복귀</li>
+          <li><b>진행</b> 내림 → 쉼 → 복귀</li>
+          <li><b>완료</b> 자기 확인 + 1탭 기록</li>
+        </ul>
+      </div>
+      <div class="iacol"><h4>내 경로</h4><div class="role">반복 이동의 기준</div>
+        <ul>
+          <li><b>등록 경로</b> 출발·도착·방향</li>
+          <li><b>경로 편집</b> 직전 역 직접 선택</li>
+          <li><b>역별 탐색</b> (P1) 보조 기능</li>
+          <li><b>장소 검색</b> (P1) 탭 아닌 하위</li>
+        </ul>
+      </div>
+      <div class="iacol"><h4>기록</h4><div class="role">다시 고르는 근거</div>
+        <ul>
+          <li><b>지난 쉼</b> 날짜·장소·체류</li>
+          <li><b>다시 갈 곳</b> 재방문 1탭</li>
+          <li><b>저장</b> 기존 저장 목록</li>
+          <li><b>기존 기록</b> 리뷰·사진·방문 보존</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>핵심 루프는 여섯 단계</h2>
+    <p class="sub">모든 화면은 이 루프의 한 단계입니다. 루프 밖 기능은 P0에 넣지 않습니다.</p>
+    <div class="flow">
+      <div class="step"><div class="n">01</div><div class="s">예산</div><div class="d">오늘 쓸 수 있는 전체 시간</div></div>
+      <div class="arrow">→</div>
+      <div class="step"><div class="n">02</div><div class="s">후보</div><div class="d">예산 안에 들어오는 곳만</div></div>
+      <div class="arrow">→</div>
+      <div class="step"><div class="n">03</div><div class="s">계획</div><div class="d">왕복·체류·복귀 시각 확정</div></div>
+      <div class="arrow">→</div>
+      <div class="step"><div class="n">04</div><div class="s">하차</div><div class="d">"내렸어요" 자기 확인</div></div>
+      <div class="arrow">→</div>
+      <div class="step"><div class="n">05</div><div class="s">복귀</div><div class="d">"돌아왔어요"까지가 완료</div></div>
+      <div class="arrow">→</div>
+      <div class="step"><div class="n">06</div><div class="s">기억</div><div class="d">다시 갈 곳으로 남김</div></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>흐려지던 지점을 다섯 개로 고정했습니다</h2>
+    <p class="sub">기획이 모호해지는 건 대개 "둘 다 가능"으로 남겨둔 결정 때문입니다. 아래는 이번 버전에서 확정한 값입니다.</p>
+    <table class="dec">
+      <tr><th style="width:20%">결정</th><th style="width:34%">확정</th><th>왜 이렇게 정했나</th></tr>
+      <tr><td><b>시간의 정의</b></td><td><span class="pill">전체 여유 기준</span> 30·45·60·90분, 기본 45분</td><td>"10~30분"은 체류 시간으로 재정의. 왕복 이동과 개찰구 여유를 먼저 빼야 약속이 지켜집니다.</td></tr>
+      <tr><td><b>내릴 역</b></td><td><span class="pill">직전 역 1개 기본</span> 필요할 때 변경</td><td>여러 역을 비교하게 만들면 결정이 느려집니다. 비교는 예외 행동으로 둡니다.</td></tr>
+      <tr><td><b>장소 거리</b></td><td><span class="pill">350m 기본</span> 여유 충분할 때 600m</td><td>900m는 왕복 26분이라 예산을 먼저 먹습니다. 거리는 탐색 상한이고 실제 제한은 시간입니다.</td></tr>
+      <tr><td><b>완료 판정</b></td><td><span class="pill g">자기 확인</span> 위치 추적 없음</td><td>GPS·자동 인증 없이도 성립해야 합니다. 대신 "확인 안 됨"을 완료로 바꾸지 않습니다.</td></tr>
+      <tr><td><b>기록</b></td><td><span class="pill">1탭 + 선택 메모</span> 리뷰는 보조</td><td>쉼의 가치는 리뷰 길이에 비례하지 않습니다. 기존 리뷰·사진은 열람·내보내기로 보존합니다.</td></tr>
+    </table>
+  </section>
+
+  <section class="section">
+    <h2>3주 안에 만드는 것은 여덟 개</h2>
+    <p class="sub">앞선 계획의 P0 12개를 8개로 줄였습니다. 나머지는 "출시 후"가 아니라 "이번에 안 만든다"로 표시했습니다.</p>
+    <table class="dec">
+      <tr><th style="width:16%">주차</th><th style="width:42%">만드는 것</th><th>완료 기준</th></tr>
+      <tr><td><b>1주</b></td><td>경로 등록 · 예산 · 후보 계산 · 세션 스키마</td><td>예산을 바꾸면 같은 장소의 적합성이 바뀌고, 재시작해도 경로가 남는다</td></tr>
+      <tr><td><b>1주</b></td><td>기존 기록 마이그레이션 · 내보내기</td><td>업데이트 후 리뷰·사진·방문이 그대로 읽힌다</td></tr>
+      <tr><td><b>2주</b></td><td>후보 비교 · 계획 상세 · 진행 · 완료</td><td>내림 → 쉼 → 복귀가 한 흐름으로 끝나고, 자동 완료가 없다</td></tr>
+      <tr><td><b>3주</b></td><td>기록 · 재방문 · 접근성 · 출시 QA</td><td>큰 글꼴·TalkBack에서도 계획과 버튼이 가려지지 않는다</td></tr>
+      <tr><td><b>안 만듦</b></td><td>검색 탭 · 날씨 · 챌린지 · 통계 · 리뷰 작성 · 로그인</td><td>다음 릴리스에서도 우선순위에 넣지 않는다</td></tr>
+    </table>
+  </section>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+var BASE_MIN = 18*60 + 48;
+var state = {
+  tab: 'today',
+  screen: 'today',
+  budget: 45,
+  station: 'last',
+  places: [
+    {id:'cafe', name:'카페 온도', kind:'카페', walk:3, note:'좌석 있음 · 조용한 편'},
+    {id:'walk', name:'청계천 산책로', kind:'산책', walk:5, note:'실내 아님 · 날씨 영향'},
+    {id:'book', name:'서점 활자', kind:'서점', walk:7, note:'운영시간 확인 필요'}
+  ],
+  selected: null,
+  step: 0,
+  logs: []
+};
+
+var STATION = {
+  last:   {label:'종각 (한 정거장 전)', extra:0, route:'시청 → 종각 → 광화문'},
+  second: {label:'시청 (두 정거장 전)', extra:2, route:'시청 → 종각 → 광화문'}
+};
+
+function pad(n){ return (n<10?'0':'')+n; }
+function hhmm(min){ var m=((min%1440)+1440)%1440; return pad(Math.floor(m/60))+':'+pad(m%60); }
+function stationExtra(){ return STATION[state.station].extra; }
+function walkRound(p){ return (p.walk + stationExtra()) * 2; }
+function stay(p){ return state.budget - walkRound(p) - 15; }
+function feasible(p){ return stay(p) >= 10; }
+function returnAt(){ return hhmm(BASE_MIN + state.budget); }
+function stayText(p){
+  var s = stay(p);
+  if(s <= 0) return '0분';
+  return s + '분';
+}
+
+function toast(msg){
+  var el = document.getElementById('toast');
+  el.textContent = msg;
+  el.classList.add('on');
+  setTimeout(function(){ el.classList.remove('on'); }, 2200);
+}
+
+function setTab(tab){
+  state.tab = tab;
+  state.screen = 'today';
+  state.selected = null;
+  state.step = 0;
+  render();
+}
+
+function render(){
+  var tabs = document.querySelectorAll('.tab');
+  for(var i=0;i<tabs.length;i++){
+    tabs[i].className = 'tab' + (tabs[i].getAttribute('data-tab') === state.tab ? ' on' : '');
+  }
+  var title = document.getElementById('appTitle');
+  var sub = document.getElementById('appSub');
+  var el = document.getElementById('screen');
+  if(state.tab === 'route'){ title.textContent='내 경로'; sub.textContent='반복 이동의 기준'; el.innerHTML = viewRoute(); }
+  else if(state.tab === 'log'){ title.textContent='기록'; sub.textContent='지난 쉼과 저장'; el.innerHTML = viewLog(); }
+  else {
+    title.textContent = state.screen === 'today' ? '오늘' : (state.screen === 'detail' ? '계획' : (state.screen === 'session' ? '진행' : '완료'));
+    sub.textContent = '퇴근길 · 시청 방면';
+    if(state.screen === 'today') el.innerHTML = viewToday();
+    else if(state.screen === 'detail') el.innerHTML = viewDetail();
+    else if(state.screen === 'session') el.innerHTML = viewSession();
+    else el.innerHTML = viewDone();
+  }
+  document.getElementById('notes').innerHTML = notesFor();
+  el.scrollTop = 0;
+}
+
+function viewToday(){
+  var p = state.selected;
+  var html = '';
+  html += '<div class="eyebrow">목요일 18:48 · 퇴근</div>';
+  html += '<div class="routeline">시청 <span class="arrow">→</span> 종각 <span class="arrow">→</span> 광화문 <span class="sec">2호선</span></div>';
+  html += '<div class="h2">오늘은 <em>' + state.budget + '분</em>,<br>한 정거장 내려볼까요?</div>';
+  html += '<div class="muted">왕복 이동과 개찰구 여유를 뺀 시간이에요.</div>';
+
+  html += '<div class="budget">';
+  [30,45,60,90].forEach(function(b){
+    html += '<button class="bchip' + (state.budget===b?' on':'') + '" data-act="budget" data-v="' + b + '">' + b + '분</button>';
+  });
+  html += '</div>';
+  html += '<div class="calc">복귀 목표 ' + returnAt() + ' · 남는 체류는 장소마다 달라요</div>';
+
+  html += '<div class="segment">';
+  html += '<button class="' + (state.station==='last'?'on':'') + '" data-act="station" data-v="last">종각 · 한 정거장 전</button>';
+  html += '<button class="' + (state.station==='second'?'on':'') + '" data-act="station" data-v="second">시청 · 두 정거장 전</button>';
+  html += '</div>';
+
+  var list = state.places.slice().sort(function(a,b){ return walkRound(a)-walkRound(b); });
+  var any = false;
+  list.forEach(function(place){
+    var ok = feasible(place);
+    if(ok) any = true;
+    html += '<div class="card' + (ok?' primary':'') + '">';
+    html += '<div class="row"><div><div class="place">' + place.name + '</div><div class="kind">' + place.kind + ' · ' + place.note + '</div></div>';
+    html += '<span class="badge ' + (ok?'ok':'cut') + '">' + (ok?'여유 있음':'여유 부족') + '</span></div>';
+    html += '<div class="nums">';
+    html += '<div class="num"><b>' + (place.walk + stationExtra()) + '분</b>편도 도보</div>';
+    html += '<div class="num"><b>' + walkRound(place) + '분</b>왕복</div>';
+    html += '<div class="num"><b>' + (ok?stayText(place):'0분') + '</b>체류 가능</div>';
+    html += '</div>';
+    if(ok){
+      html += '<button class="cta" data-act="open" data-id="' + place.id + '">이곳에서 쉬어보기</button>';
+    } else {
+      html += '<div class="muted" style="margin-top:10px">이 예산으로는 왕복만으로 시간이 부족해요.</div>';
+    }
+    html += '</div>';
+  });
+
+  if(!any){
+    html += '<div class="empty"><b>지금은 쉬었다 돌아오기 어려워요</b>15분만 더 확보하면 후보가 생깁니다. 억지로 먼 곳을 추천하지 않습니다.</div>';
+    html += '<button class="cta" data-act="budget" data-v="60">60분으로 다시 계산</button>';
+  }
+
+  html += '<button class="ghost" data-act="skip">오늘은 그냥 갈게요</button>';
+  return html;
+}
+
+function viewDetail(){
+  var p = state.selected;
+  var w = walkRound(p);
+  var s = stay(p);
+  var html = '';
+  html += '<button class="linkbtn" data-act="back">← 오늘로</button>';
+  html += '<div class="eyebrow" style="margin-top:10px">' + p.kind + ' · ' + STATION[state.station].label + '</div>';
+  html += '<div class="h2" style="margin-top:4px">' + p.name + '</div>';
+  html += '<div class="muted">역에서 약 ' + (p.walk + stationExtra()) + '분 · 거리 추정치</div>';
+
+  html += '<div class="planbox">';
+  html += '<div class="planrow"><span>전체 여유</span><b>' + state.budget + '분</b></div>';
+  html += '<div class="planrow"><span>왕복 이동</span><b>−' + w + '분</b></div>';
+  html += '<div class="planrow"><span>개찰구·여유</span><b>−15분</b></div>';
+  html += '<div class="planrow total"><span>머물 수 있는 시간</span><b>' + s + '분</b></div>';
+  html += '</div>';
+
+  html += '<div class="card"><div class="row"><div><div class="place">복귀 목표 ' + returnAt() + '</div><div class="kind">열차 시각이 아니라 내 계획의 끝</div></div><span class="badge warn">재승차 필요</span></div>';
+  html += '<div class="muted" style="margin-top:8px">개찰구를 다시 통과해야 하고 추가 운임이 발생할 수 있어요. 막차·배차 정보는 제공하지 않습니다.</div></div>';
+
+  html += '<div class="card"><div class="kind">확인되지 않은 정보</div><div style="font-size:14px;font-weight:700;margin-top:4px">운영시간 · 혼잡도 · 좌석</div><div class="muted" style="margin-top:4px">확인된 것만 표시합니다. 방문 전에 지도에서 한 번 더 확인하세요.</div></div>';
+
+  html += '<button class="cta" data-act="start">지금 출발</button>';
+  html += '<button class="ghost" data-act="back">다른 곳 보기</button>';
+  return html;
+}
+
+function viewSession(){
+  var p = state.selected;
+  var steps = ['내렸어요','쉬는 중','돌아가는 중','도착'];
+  var labels = ['역에서 내렸어요','쉬기 시작했어요','이제 돌아갈게요','역에 돌아왔어요'];
+  var now = BASE_MIN;
+  var left = Math.max(0, state.budget - state.step * 8);
+  var html = '';
+  html += '<div class="eyebrow">진행 중 · ' + p.name + '</div>';
+  html += '<div class="steps">';
+  for(var i=0;i<4;i++){ html += '<i class="' + (i <= state.step ? 'on' : '') + '"></i>'; }
+  html += '</div>';
+  html += '<div class="state">' + steps[Math.min(state.step,3)] + '</div>';
+  html += '<div class="bigtime">' + (state.step >= 3 ? '완료' : left + '<span>분 남음</span>') + '</div>';
+  html += '<div class="muted" style="margin-top:8px">복귀 목표 ' + returnAt() + ' · ' + p.name + '</div>';
+
+  html += '<div class="card" style="margin-top:18px"><div class="row"><div><div class="place">' + labels[Math.min(state.step,3)] + '</div><div class="kind">버튼은 실제 행동을 마친 뒤 누르는 확인입니다</div></div></div></div>';
+
+  if(state.step < 3){
+    html += '<button class="cta" data-act="advance">' + labels[state.step] + '</button>';
+  } else {
+    html += '<button class="cta" data-act="finish">기록 남기기</button>';
+  }
+  html += '<button class="ghost" data-act="abort">여기서 그만두기</button>';
+  return html;
+}
+
+function viewDone(){
+  var p = state.selected;
+  var html = '';
+  html += '<div class="eyebrow">완료 · 자기 확인</div>';
+  html += '<div class="h2">잘 돌아왔어요.</div>';
+  html += '<div class="muted">' + p.name + ' · 체류 ' + Math.max(0, stay(p)) + '분 · 복귀 ' + returnAt() + '</div>';
+  html += '<div class="card" style="margin-top:18px"><div class="place">오늘의 기록</div><div class="kind" style="margin-top:4px">다음에 다시 갈 곳으로 남길까요?</div>';
+  html += '<button class="cta" data-act="save">다시 갈 곳으로 저장</button>';
+  html += '<button class="ghost" data-act="nosave">저장하지 않고 끝내기</button></div>';
+  return html;
+}
+
+function viewRoute(){
+  var html = '';
+  html += '<div class="card"><div class="row"><div><div class="place">시청 → 광화문</div><div class="kind">2호선 · 평일 퇴근</div></div><span class="badge ok">기본 경로</span></div>';
+  html += '<div class="muted" style="margin-top:10px">한 정거장 전 <b>종각</b>을 기본 하차역으로 사용합니다.</div>';
+  html += '<button class="cta" data-act="fake">직전 역 바꾸기</button></div>';
+  html += '<div class="card"><div class="place">경로가 없을 때</div><div class="kind" style="margin-top:4px">시청역으로 대신 추천하지 않습니다</div><div class="muted" style="margin-top:6px">경로 등록을 먼저 요청하고, 그 전에는 후보를 만들지 않아요.</div></div>';
+  html += '<div class="card"><div class="place">출근길</div><div class="kind" style="margin-top:4px">P1에서 검증</div><div class="muted" style="margin-top:6px">첫 출시는 귀가길만 다룹니다. 시간 압박이 다르기 때문이에요.</div></div>';
+  return html;
+}
+
+function viewLog(){
+  var n = state.logs.length;
+  var total = 0;
+  state.logs.forEach(function(l){ total += l.stay; });
+  var html = '';
+  html += '<div class="stat3">';
+  html += '<div class="stat"><b>' + n + '회</b><span>이번 주</span></div>';
+  html += '<div class="stat"><b>' + total + '분</b><span>쉰 시간</span></div>';
+  html += '<div class="stat"><b>' + (n>0?'1곳':'0곳') + '</b><span>다시 갈 곳</span></div>';
+  html += '</div>';
+  if(n === 0){
+    html += '<div class="empty" style="margin-top:16px"><b>아직 기록이 없어요</b>오늘 한 번 쉬고 오면 여기에 쌓입니다. 연속 출석이나 목표는 없습니다.</div>';
+  } else {
+    html += '<div class="card" style="margin-top:16px">';
+    state.logs.forEach(function(l){
+      html += '<div class="listrow"><div class="thumb">☕</div><div><div class="t1">' + l.name + '</div><div class="t2">' + l.date + ' · 체류 ' + l.stay + '분 · 복귀 ' + l.ret + '</div></div></div>';
+    });
+    html += '</div>';
+  }
+  html += '<div class="card"><div class="place">기존 기록</div><div class="kind" style="margin-top:4px">리뷰 · 사진 · 방문</div><div class="muted" style="margin-top:6px">기능이 줄어도 삭제하지 않고, 열람과 내보내기를 유지합니다.</div></div>';
+  return html;
+}
+
+function notesFor(){
+  if(state.tab === 'route'){
+    return '<h3>내 경로</h3><p class="why">반복 이동의 기준을 한 번만 정하는 화면</p>' +
+      '<dl><dt>결정</dt><dd>출발·도착·방향, 그리고 <b>직전 역</b></dd>' +
+      '<dt>금지</dt><dd>경로가 없을 때 시청역으로 대신 추천하기</dd>' +
+      '<dt>이유</dt><dd>잘못된 개인화는 빈 화면보다 신뢰를 더 깎습니다</dd>' +
+      '<dt>다음</dt><dd>저장 즉시 오늘 화면 재계산</dd></dl>' +
+      '<div class="fineprint">내 경로 탭은 "설정"이 아니라 "기준"입니다. 자주 바꾸는 값이 아니라 한 번 정하는 값이에요.</div>';
+  }
+  if(state.tab === 'log'){
+    return '<h3>기록</h3><p class="why">성과표가 아니라 다음 선택의 근거</p>' +
+      '<dl><dt>보여줄 것</dt><dd>지난 쉼, 다시 갈 곳, 기존 리뷰·사진</dd>' +
+      '<dt>감추는 것</dt><dd>연속 출석, 목표 달성률, 등급</dd>' +
+      '<dt>완료 기준</dt><dd>복귀까지 확인한 세션만</dd>' +
+      '<dt>예외</dt><dd>사진 URI 만료 시 텍스트는 그대로, 사진만 "확인 불가"</dd></dl>' +
+      '<div class="fineprint">기록이 비어 있어도 실패가 아닙니다. "아직 없음"을 담담하게 보여줍니다.</div>';
+  }
+  if(state.screen === 'today'){
+    return '<h3>오늘</h3><p class="why">이 화면은 질문 하나에만 답합니다. "지금 내려도 되나?"</p>' +
+      '<dl><dt>입력</dt><dd>여유 시간, 내릴 역</dd>' +
+      '<dt>계산</dt><dd>예산 − 왕복 − 15분 = 체류</dd>' +
+      '<dt>출력</dt><dd>후보, 체류 가능 시간, 복귀 시각</dd>' +
+      '<dt>다음</dt><dd>계획 상세 → 출발</dd>' +
+      '<dt>빈 상태</dt><dd>억지 추천 대신 "지금은 어려워요"</dd></dl>' +
+      '<div class="fineprint">예산을 30분으로 바꿔 보세요. 같은 장소가 "여유 부족"으로 바뀝니다. 이게 이 제품의 유일한 규칙입니다.</div>';
+  }
+  if(state.screen === 'detail'){
+    return '<h3>계획 상세</h3><p class="why">내릴지 확정하는 화면. 정보를 늘리는 대신 숫자 세 개로 끝냅니다.</p>' +
+      '<dl><dt>숫자</dt><dd>왕복, 체류, 복귀 목표</dd>' +
+      '<dt>경고</dt><dd>재승차·추가 운임 가능성</dd>' +
+      '<dt>금지</dt><dd>"몇 시 열차" 같은 확정 안내</dd>' +
+      '<dt>불확실</dt><dd>운영시간·혼잡·좌석은 확인된 것만</dd></dl>' +
+      '<div class="fineprint">복귀 목표는 열차 시각이 아니라 내 계획의 끝입니다. 이 문장을 화면에서 빼면 제품이 거짓말을 하게 됩니다.</div>';
+  }
+  if(state.screen === 'session'){
+    return '<h3>진행</h3><p class="why">타이머가 아니라 행동 단계. 자동으로 넘어가지 않습니다.</p>' +
+      '<dl><dt>단계</dt><dd>내렸어요 → 쉬는 중 → 돌아가는 중 → 도착</dd>' +
+      '<dt>규칙</dt><dd>시간이 지나도 자동 완료·실패 없음</dd>' +
+      '<dt>복원</dt><dd>앱을 닫아도 세션 유지</dd>' +
+      '<dt>중단</dt><dd>ABORTED로 남기고 벌점 없음</dd></dl>' +
+      '<div class="fineprint">"몇 분 남음"은 계획 대비 표시일 뿐, 실제 열차 시간이 아닙니다.</div>';
+  }
+  return '<h3>완료</h3><p class="why">완료는 사용자가 직접 확인한 순간에만 생깁니다.</p>' +
+    '<dl><dt>기록</dt><dd>장소·날짜·체류·복귀</dd>' +
+    '<dt>선택</dt><dd>"다시 갈 곳" 1탭</dd>' +
+    '<dt>지표</dt><dd>복귀 완료 세션 수</dd>' +
+    '<dt>한계</dt><dd>자기 보고이며 GPS 검증이 아님</dd></dl>' +
+    '<div class="fineprint">저장을 누르지 않아도 기록은 남습니다. 저장은 "다음에 다시" 표시일 뿐입니다.</div>';
+}
+
+function openDetail(id){
+  var p = null;
+  state.places.forEach(function(x){ if(x.id === id) p = x; });
+  if(!p) return;
+  state.selected = p;
+  state.screen = 'detail';
+  render();
+}
+
+document.addEventListener('click', function(e){
+  var target = e.target.closest ? e.target.closest('[data-act],[data-tab]') : null;
+  if(!target) return;
+  var tab = target.getAttribute('data-tab');
+  if(tab){ setTab(tab); return; }
+  var act = target.getAttribute('data-act');
+  var v = target.getAttribute('data-v');
+  if(act === 'budget'){ state.budget = Number(v); render(); }
+  else if(act === 'station'){ state.station = v; render(); }
+  else if(act === 'open'){ openDetail(target.getAttribute('data-id')); }
+  else if(act === 'back'){ state.screen='today'; state.selected=null; render(); }
+  else if(act === 'start'){ state.screen='session'; state.step=0; render(); }
+  else if(act === 'advance'){ state.step = Math.min(3, state.step+1); render(); }
+  else if(act === 'abort'){ state.screen='today'; state.step=0; toast('중단으로 기록했어요. 벌점은 없습니다'); }
+  else if(act === 'finish'){ state.screen='done'; render(); }
+  else if(act === 'save' || act === 'nosave'){
+    var p = state.selected;
+    state.logs.unshift({name:p.name, stay: Math.max(0, stay(p)), ret: returnAt(), date:'10월 27일 (목)'});
+    state.screen='today'; state.selected=null; state.step=0;
+    setTab('log');
+    toast(act === 'save' ? '다시 갈 곳으로 저장했어요' : '기록만 남겼어요');
+  }
+  else if(act === 'skip'){ toast('오늘은 그냥 가도 괜찮아요'); }
+  else if(act === 'fake'){ toast('직전 역 변경은 경로 화면에서 이어집니다'); }
+});
+
+render();
+</script>
+</body>
+</html>
